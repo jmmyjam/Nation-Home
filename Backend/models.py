@@ -32,7 +32,7 @@ class Property(BaseModel):
     address: str = ""
     city: str = ""
     image: str = ""
-    avg_price: float
+    price: float
 
     @model_validator(mode="after")
     def set_address_and_city_from_name(self):

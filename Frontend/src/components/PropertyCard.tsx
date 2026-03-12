@@ -6,7 +6,7 @@ export interface Property {
   address: string;
   city: string;
   image: string;
-  avg_price: number;
+  price: number;
 }
 
 interface PropertyCardProps {
@@ -34,7 +34,7 @@ function PropertyCard({ property, displayName }: PropertyCardProps) {
       <div style={styles.imgWrapper}>
         <img src={img} alt={property.name} style={styles.cardImg} />
         <div style={styles.priceBadge}>
-          ${property.avg_price.toLocaleString()}
+          ${property.price.toLocaleString()}
           <span style={styles.priceSuffix}>/mo</span>
         </div>
       </div>

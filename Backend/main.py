@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from database import supabase
-from models import Property
+from models import Property, addresses, images
 
 app = FastAPI()
 
@@ -15,6 +15,13 @@ app.add_middleware(
 @app.get("/")
 async def root():
     return {"message": "Nation Home Realty"}
+
+@app.get("/parentproperties")
+async def getParentProperties():
+    return [
+        {"name": name, "address": address, "image": images.get(name, "")}
+        for name, address in addresses.items()
+    ]
 
 @app.get("/allproperties")
 async def getAllProperties():
@@ -32,7 +39,7 @@ async def getAllProperties():
 async def addNewProperty(body: Property):
     response = (
         supabase.table("all_properties")
-        .insert({"name": body.name, "address": body.address, "city": body.city, "image": body.image, "avg_price": body.avg_price})
+        .insert({"name": body.name, "address": body.address, "city": body.city, "image": body.image, "price": body.price})
         .execute()
     )
     return response
@@ -53,7 +60,7 @@ async def updateProperty(name: str, body: Property):
 
     response = (
         supabase.table("all_properties")
-        .update({"name": body.name, "address": body.address, "city": body.city, "avg_price": body.avg_price})
+        .update({"name": body.name, "address": body.address, "city": body.city, "price": body.price})
         .eq("id", property_id)
         .execute()
     )
