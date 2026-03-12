@@ -89,7 +89,7 @@ function Contact() {
         <h1 style={styles.headerTitle}>Contact Us</h1>
         <p style={styles.headerSub}>
           Have questions? Ready to start? Our team typically responds within one
-          business day.
+          to two business days.
         </p>
       </section>
 

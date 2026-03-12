@@ -3,28 +3,28 @@ import CTAButton from "../components/CTAButton";
 
 const teamMembers = [
   {
-    name: "Maria Gonzalez",
-    role: "Founder & Principal Broker",
-    bio: "With 18 years in real estate, Maria founded Nation Home Realty on a simple belief: every family deserves an expert advocate in their corner.",
-    initials: "MG",
+    name: "Christina Lee",
+    role: "Co-Founder & Principal Broker",
+    bio: "With over 20 years in real estate, Maria founded Nation Home Realty on a simple belief: every family deserves an expert advocate in their corner.",
+    initials: "CL",
   },
   {
-    name: "David Park",
-    role: "Senior Mortgage Specialist",
-    bio: "David has helped over 400 families secure financing, specializing in FHA, VA, and first-time buyer programs.",
-    initials: "DP",
+    name: "Daniel Lee",
+    role: "Co-Founder",
+    bio: "David has helped over 400 families find a home and helps them whenever they need any issues.",
+    initials: "DL",
   },
   {
-    name: "Ashley Turner",
+    name: "William Lee",
     role: "Buyer's Agent",
-    bio: "Ashley's patient, detail-oriented approach makes her the go-to agent for buyers navigating a competitive market.",
-    initials: "AT",
+    bio: "William's patient, detail-oriented approach makes him the go-to agent for buyers navigating a competitive market.",
+    initials: "WL",
   },
   {
-    name: "James Okafor",
-    role: "Listing Specialist",
-    bio: "James leverages professional photography, targeted digital marketing, and sharp negotiation to get sellers top dollar.",
-    initials: "JO",
+    name: "-",
+    role: "-",
+    bio: "-",
+    initials: "-",
   },
 ];
 
@@ -52,10 +52,10 @@ const values = [
 ];
 
 const stats = [
-  { value: "500+", label: "Homes Sold" },
-  { value: "18+", label: "Years in Business" },
-  { value: "98%", label: "Client Satisfaction" },
-  { value: "$1.2B", label: "Transaction Volume" },
+  { value: "500+", label: "Families Helped" },
+  { value: "20+", label: "Years in Business" },
+  { value: "95%", label: "Client Satisfaction" },
+  { value: "24 hrs", label: "Average Response Time" },
 ];
 
 function About() {
