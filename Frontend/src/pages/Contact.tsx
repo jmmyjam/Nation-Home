@@ -46,7 +46,7 @@ const contactInfo = [
   {
     icon: "🕐",
     label: "Hours",
-    value: "Mon - Sat: 9 AM - 5 PM",
+    value: "Mon - Fri: 9 AM - 5 PM",
   },
 ];
 
