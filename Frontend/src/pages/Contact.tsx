@@ -1,7 +1,12 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import InputField from "../components/InputField";
 import SelectField from "../components/SelectField";
 import TextareaField from "../components/TextareaField";
+
+const EMAILJS_SERVICE_ID = "service_9oecj38";
+const EMAILJS_TEMPLATE_ID = "template_da04rp3";
+const EMAILJS_PUBLIC_KEY = "rBXmqwribFy-ZmSbd";
 
 type FormState = {
   name: string;
@@ -17,17 +22,17 @@ const INITIAL: FormState = {
   name: "",
   email: "",
   phone: "",
-  interest: "Buying a Home",
+  interest: "General Inquiry",
   message: "",
 };
 
 const INTEREST_OPTIONS = [
-  "Buying a Home",
+  "General Inquiry",
+  "Renting a Home",
   "Selling a Home",
   "Mortgage / Loan",
   "Refinancing",
   "Property Management",
-  "General Inquiry",
 ];
 
 const contactInfo = [
@@ -53,12 +58,27 @@ function Contact() {
     setForm((prev) => ({ ...prev, [id]: val }));
   }
 
-  function handleSubmit(e: React.SyntheticEvent) {
+  async function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault();
     if (!form.name || !form.email || !form.phone) return;
     setStatus("sending");
-    // Simulate submission — swap with real API call if needed
-    setTimeout(() => setStatus("sent"), 1200);
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: form.name,
+          from_email: form.email,
+          phone: form.phone,
+          interest: form.interest,
+          message: form.message,
+        },
+        EMAILJS_PUBLIC_KEY,
+      );
+      setStatus("sent");
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
@@ -166,6 +186,13 @@ function Contact() {
                 onChange={handleChange}
                 placeholder="Tell us a bit about what you're looking for…"
               />
+
+              {status === "error" && (
+                <p style={{ color: "#b00", fontSize: "0.9rem", margin: 0 }}>
+                  Something went wrong. Please try again or email us directly at
+                  team@dnclee.com.
+                </p>
+              )}
 
               <button
                 type="submit"
