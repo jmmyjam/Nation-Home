@@ -64,10 +64,16 @@ function Navbar() {
     <>
       <nav style={styles.nav}>
         <Link to="/" style={styles.brand}>
-          <img src={nhmLogo} alt="Nation Home Realty" style={styles.logo} />
-          <span style={styles.brandText}>
-            Nation Home Realty <span style={styles.brandAmp}>&</span> Mortgage
-          </span>
+          <img
+            src={nhmLogo}
+            alt="Nation Home Realty"
+            style={{ ...styles.logo, height: isMobile ? 36 : 48 }}
+          />
+          {!isMobile && (
+            <span style={styles.brandText}>
+              Nation Home Realty <span style={styles.brandAmp}>&</span> Mortgage
+            </span>
+          )}
         </Link>
 
         {/* Desktop links */}
