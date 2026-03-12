@@ -78,18 +78,18 @@ function About() {
         <div style={styles.storyText}>
           <h2 style={styles.storyTitle}>How We Started</h2>
           <p style={styles.storyP}>
-            Nation Home Realty &amp; Mortgage was founded in 2006 by Maria
-            Gonzalez after she experienced firsthand how overwhelming the
-            homebuying process can be. She set out to build an agency where
-            clients felt informed, respected, and genuinely supported — not just
+            Nation Home Realty &amp; Mortgage was founded by Daniel and
+            Christina Lee after they experienced firsthand how overwhelming the
+            homebuying process can be. They set out to build an agency where
+            clients felt informed, respected, and genuinely supported, not just
             pushed through a transaction.
           </p>
           <p style={styles.storyP}>
-            What started as a one-person operation has grown into a full-service
-            brokerage with an in-house mortgage team, giving clients access to
-            both real estate expertise and financing under one roof. Today we've
-            helped more than 500 families buy, sell, and finance their homes
-            across the region.
+            What started as a one-person operation has grown into a family-led
+            full-service brokerage with an in-house mortgage team, giving
+            clients access to both real estate expertise and financing under one
+            roof. Today we've helped more than 500 families rent, sell, and
+            finance their homes across the region.
           </p>
           <CTAButton onClick={() => navigate("/contact")}>
             Talk to Our Team
