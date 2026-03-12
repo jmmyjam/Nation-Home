@@ -69,11 +69,9 @@ function Navbar() {
             alt="Nation Home Realty"
             style={{ ...styles.logo, height: isMobile ? 36 : 48 }}
           />
-          {!isMobile && (
-            <span style={styles.brandText}>
-              Nation Home Realty <span style={styles.brandAmp}>&</span> Mortgage
-            </span>
-          )}
+          <span style={styles.brandText}>
+            {isMobile ? "Nation Home Realty" : <>Nation Home Realty <span style={styles.brandAmp}>&</span> Mortgage</>}
+          </span>
         </Link>
 
         {/* Desktop links */}
