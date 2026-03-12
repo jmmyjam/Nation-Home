@@ -24,14 +24,15 @@ async def getAllProperties():
         .execute()
     )
     if not response.data:
-        return {"message": "No properties found"}
-    return response
+        return {"message": "No properties found please call"}
+    properties = [Property(**row).model_dump() for row in response.data]
+    return properties
 
 @app.post("/allproperties")
 async def addNewProperty(body: Property):
     response = (
         supabase.table("all_properties")
-        .insert({"name": body.name, "address": body.address, "city": body.city, "avg_price": body.avg_price})
+        .insert({"name": body.name, "address": body.address, "city": body.city, "image": body.image, "avg_price": body.avg_price})
         .execute()
     )
     return response

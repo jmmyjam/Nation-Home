@@ -5,26 +5,18 @@ export interface Property {
   name: string;
   address: string;
   city: string;
+  image: string;
   avg_price: number;
 }
-
-const PROPERTY_IMGS = [
-  "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1560184897-ae75f418493e?w=600&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=600&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1448630360428-65456885c650?w=600&auto=format&fit=crop&q=80",
-];
 
 interface PropertyCardProps {
   property: Property;
   index: number;
 }
 
-function PropertyCard({ property, index }: PropertyCardProps) {
+function PropertyCard({ property }: PropertyCardProps) {
   const [hovered, setHovered] = useState(false);
-  const img = PROPERTY_IMGS[index % PROPERTY_IMGS.length];
+  const img = property.image;
 
   return (
     <div
