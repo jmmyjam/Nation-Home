@@ -7,7 +7,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://nationhome.netlify.app"],
+    allow_origins=["https://nationhome.org"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
