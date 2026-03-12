@@ -109,7 +109,9 @@ function Listings() {
 
         {!loading && !error && properties.length === 0 && (
           <div style={styles.stateBox}>
-            <p style={styles.stateText}>No listings available right now.</p>
+            <p style={styles.stateText}>
+              No listings available right now please call.
+            </p>
           </div>
         )}
 
