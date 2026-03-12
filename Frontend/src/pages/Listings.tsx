@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import PropertyCard, { type Property } from "../components/PropertyCard";
 
-const API_URL = "http://localhost:8000";
+const API_URL = "https://nation-home.onrender.com";
 
 function Listings() {
   const [properties, setProperties] = useState<Property[]>([]);
