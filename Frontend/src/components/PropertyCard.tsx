@@ -3,8 +3,6 @@ import { useState } from "react";
 export interface Property {
   id?: number;
   name: string;
-  address: string;
-  city: string;
   image: string;
   price: number;
 }
@@ -40,8 +38,6 @@ function PropertyCard({ property, displayName }: PropertyCardProps) {
       </div>
       <div style={styles.cardBody}>
         <h3 style={styles.cardName}>{displayName ?? property.name}</h3>
-        <p style={styles.cardAddress}>{property.address}</p>
-        <p style={styles.cardCity}>{property.city}</p>
       </div>
     </div>
   );
