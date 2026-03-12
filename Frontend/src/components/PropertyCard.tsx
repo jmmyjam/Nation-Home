@@ -12,9 +12,10 @@ export interface Property {
 interface PropertyCardProps {
   property: Property;
   index: number;
+  displayName?: string;
 }
 
-function PropertyCard({ property }: PropertyCardProps) {
+function PropertyCard({ property, displayName }: PropertyCardProps) {
   const [hovered, setHovered] = useState(false);
   const img = property.image;
 
@@ -38,7 +39,7 @@ function PropertyCard({ property }: PropertyCardProps) {
         </div>
       </div>
       <div style={styles.cardBody}>
-        <h3 style={styles.cardName}>{property.name}</h3>
+        <h3 style={styles.cardName}>{displayName ?? property.name}</h3>
         <p style={styles.cardAddress}>{property.address}</p>
         <p style={styles.cardCity}>{property.city}</p>
       </div>

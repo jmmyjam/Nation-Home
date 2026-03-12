@@ -130,12 +130,10 @@ function Listings() {
               {groupKeys.map((key) => {
                 const units = groups[key];
                 const img = PROPERTY_IMAGES[key] || PLACEHOLDER_IMG;
-                const minPrice = Math.min(...units.map((u) => u.avg_price));
-                const maxPrice = Math.max(...units.map((u) => u.avg_price));
-                const priceLabel =
-                  minPrice === maxPrice
-                    ? `$${minPrice.toLocaleString()}/mo`
-                    : `$${minPrice.toLocaleString()} – $${maxPrice.toLocaleString()}/mo`;
+                const avgPrice = Math.round(
+                  units.reduce((sum, u) => sum + u.avg_price, 0) / units.length
+                );
+                const priceLabel = `$${avgPrice.toLocaleString()}/mo avg`;
                 return (
                   <ParentCard
                     key={key}
@@ -160,9 +158,19 @@ function Listings() {
               {selectedListings.length === 1 ? "" : "s"} available
             </p>
             <div style={styles.grid}>
-              {selectedListings.map((p, i) => (
-                <PropertyCard key={p.id ?? i} property={p} index={i} />
-              ))}
+              {selectedListings.map((p, i) => {
+                const unitType = p.name
+                  .replace(new RegExp(`^${selectedGroup}\\s*`, "i"), "")
+                  .trim() || p.name;
+                return (
+                  <PropertyCard
+                    key={p.id ?? i}
+                    property={p}
+                    index={i}
+                    displayName={unitType}
+                  />
+                );
+              })}
             </div>
           </>
         )}
